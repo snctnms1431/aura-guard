@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import PostCard from '@/components/PostCard';
 import Stats from '@/components/Stats';
+import DashboardCharts from '@/components/DashboardCharts';
 import { useAppState, type ModerationItem } from '@/store';
 
 const samplePosts: ModerationItem[] = [
@@ -79,6 +80,8 @@ export default function Dashboard() {
                   ))}
                 </AnimatePresence>
               </div>
+
+              <DashboardCharts />
 
               {allDecided && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6">
