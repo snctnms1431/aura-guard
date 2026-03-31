@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import PostCard from '@/components/PostCard';
 import Stats from '@/components/Stats';
+import DashboardCharts from '@/components/DashboardCharts';
 import { useAppState, type ModerationItem } from '@/store';
 
 const samplePosts: ModerationItem[] = [
