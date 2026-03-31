@@ -7,8 +7,6 @@ import { useAppState } from '@/store';
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Dashboard', path: '/dashboard' },
-  { label: 'History', path: '/history' },
-  { label: 'Profile', path: '/profile' },
 ];
 
 export default function Navbar() {

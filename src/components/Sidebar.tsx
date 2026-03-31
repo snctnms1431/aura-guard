@@ -1,11 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import { IconDashboard, IconHistory, IconUser, IconHome, IconShield } from '@tabler/icons-react';
+import { IconDashboard, IconHome, IconShield } from '@tabler/icons-react';
 
 const links = [
   { path: '/', label: 'Home', icon: <IconHome size={20} /> },
   { path: '/dashboard', label: 'Dashboard', icon: <IconDashboard size={20} /> },
-  { path: '/history', label: 'History', icon: <IconHistory size={20} /> },
-  { path: '/profile', label: 'Profile', icon: <IconUser size={20} /> },
 ];
 
 export default function Sidebar() {
