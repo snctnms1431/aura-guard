@@ -29,7 +29,7 @@ export default function Dashboard() {
         const isCorrect = decision === item.correctDecision;
         const score = isCorrect ? (difficulty === 'easy' ? 8 : difficulty === 'medium' ? 10 : 15) : 0;
         const updated = { ...item, decision, score };
-        dispatch({ type: 'ADD_TO_HISTORY', payload: updated });
+        dispatch({ type: 'RECORD_DECISION', payload: updated });
         return updated;
       })
     );

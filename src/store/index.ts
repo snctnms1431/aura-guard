@@ -28,7 +28,6 @@ export interface AppState {
   user: User | null;
   isAuthenticated: boolean;
   moderationItems: ModerationItem[];
-  history: ModerationItem[];
   stats: {
     totalProcessed: number;
     accuracy: number;
@@ -42,7 +41,6 @@ export const initialState: AppState = {
   user: null,
   isAuthenticated: false,
   moderationItems: [],
-  history: [],
   stats: {
     totalProcessed: 0,
     accuracy: 0,
@@ -56,11 +54,10 @@ export type AppAction =
   | { type: 'LOGIN'; payload: User }
   | { type: 'LOGOUT' }
   | { type: 'SET_MODERATION_ITEMS'; payload: ModerationItem[] }
-  | { type: 'ADD_TO_HISTORY'; payload: ModerationItem }
   | { type: 'UPDATE_STATS'; payload: Partial<AppState['stats']> }
   | { type: 'SET_DIFFICULTY'; payload: AppState['difficulty'] }
   | { type: 'RESET_SESSION' }
-  | { type: 'CLEAR_HISTORY' };
+  | { type: 'RECORD_DECISION'; payload: ModerationItem };
 
 export function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
@@ -70,10 +67,9 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       return { ...state, user: null, isAuthenticated: false };
     case 'SET_MODERATION_ITEMS':
       return { ...state, moderationItems: action.payload };
-    case 'ADD_TO_HISTORY':
+    case 'RECORD_DECISION':
       return {
         ...state,
-        history: [action.payload, ...state.history],
         stats: {
           ...state.stats,
           totalProcessed: state.stats.totalProcessed + 1,
@@ -98,8 +94,6 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       return { ...state, difficulty: action.payload };
     case 'RESET_SESSION':
       return { ...state, moderationItems: [], stats: initialState.stats };
-    case 'CLEAR_HISTORY':
-      return { ...state, history: [] };
     default:
       return state;
   }
