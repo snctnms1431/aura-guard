@@ -28,8 +28,6 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/history" element={<History />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
